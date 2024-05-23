@@ -23,7 +23,7 @@ async function postPredictHandler(request, h) {
   });
 
   response.code(201);
-  return response;
+  return response
 }
 
 module.exports = postPredictHandler;
