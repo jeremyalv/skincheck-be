@@ -8,7 +8,7 @@ const InputError = require('../exceptions/InputError');
 
 (async () => {
     const server = Hapi.server({
-    port: process.env.PORT,
+    port: process.env.PORT || 8080,
     host: process.env.NODE_ENV == "development" ? "localhost" : "0.0.0.0", // 0.0.0.0 for docker container
     routes: {
       cors: {
