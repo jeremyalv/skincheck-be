@@ -28,7 +28,7 @@ const InputError = require('../exceptions/InputError');
     if (response instanceof InputError) {
       const newResponse = h.response({
         status: "fail",
-        message: `${response.message} Silakan gunakan foto lain.`,
+        message: response.message,
       });
 
       newResponse.code(response.statusCode);
@@ -41,7 +41,9 @@ const InputError = require('../exceptions/InputError');
         message: response.message,
       });
 
-      newResponse.code(response.statusCode);
+      const statusCode = response.statusCode || response.output.statusCode;
+
+      newResponse.code(statusCode);
       return newResponse;
     }
 
